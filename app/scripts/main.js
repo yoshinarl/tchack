@@ -71,7 +71,7 @@
         });
 
         // open
-        wrapper.animate({ height: documentHeight - 20 });
+        wrapper.animate({ height: container.innerHeight() + 460 });
         $("body, html").animate({ scrollTop: $(this).offset().top });
         hiddens.fadeIn();
 
@@ -84,7 +84,6 @@
         });
         $(this).on("click touchend", ".order-button-cancel", function(e) {
             e.preventDefault();
-            console.log("here");
             $(".order-joined").hide();
             $(".order-button-join").fadeIn();
         });
