@@ -21,51 +21,69 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
-    
+
   </head>
   <body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    
+
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">hackason</h3>
-      </div>
+      <div class="header"></div>
 
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid! <span class="glyphicon glyphicon-ok"></span></a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4><a href="https://html5boilerplate.com/">HTML5 Boilerplate</a></h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-          
-
-          <h4><a href="http://getbootstrap.com/">Bootstrap</a></h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-          <h4><a href="http://modernizr.com/">Modernizr</a></h4>
-          <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-          
+      <!-- フリーワード  -->
+      <div class="row">
+        <div class="col-xs-12">
+          <form class="form-inline" id="form-keyword">
+            <label for="keyword-search">
+              <span class="glyphicon glyphicon-search"></span>
+            </label>
+            <input type="text" class="form-control" id="keyword-search" name="" value="" placeholder="キーワードを入力して検索"/>
+          </form>
         </div>
       </div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+
+      <!-- リスト変更 -->
+      <div style="margin:8px 0;">
+        <div class="row">
+          <div class="col-xs-4">
+            <div id="gennre">
+              <span class="glyphicon glyphicon-fire" style="margin-right:4px;"></span>Hot
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- リスト -->
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="list-unstyled" id="ticket-list">
+            <!-- TODO: ここからはテンプレートにする -->
+            <li>
+              <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
+                ticket1
+              </div>
+            </li>
+            <li>
+              <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
+                ticket2
+              </div>
+            </li>
+            <li>
+              <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
+                ticket3
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="footer"></div>
     </div>
-    
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -74,7 +92,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    
+
     <!-- build:js(.) scripts/plugins.js -->
     <script src="/bower_components/bootstrap/js/affix.js"></script>
     <script src="/bower_components/bootstrap/js/alert.js"></script>
@@ -89,7 +107,7 @@
     <script src="/bower_components/bootstrap/js/collapse.js"></script>
     <script src="/bower_components/bootstrap/js/tab.js"></script>
     <!-- endbuild -->
-    
+
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
