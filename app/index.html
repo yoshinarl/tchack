@@ -29,98 +29,103 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
-    <div class="container">
-      <div class="header">
-        <h1>Snobby
-          <button class="btn btn-default pull-right" id="push-button" data-toggle="modal" data-target="#modal-confirm">通知</button>
-        </h1>
-      </div>
-
-      <!-- フリーワード  -->
-      <div class="row">
-        <div class="col-xs-12">
-          <span class="glyphicon glyphicon-search"></span>
-            <input type="text" id="input-searchword" name="" value="" placeholder="キーワードを入力して検索"/>
+    <section>
+      <div class="container">
+        <div class="header">
+          <h1>Snobby
+            <button class="btn btn-default pull-right" id="push-button" data-toggle="modal" data-target="#modal-confirm">通知</button>
+          </h1>
         </div>
       </div>
+    </section>
 
-      <!-- リスト変更 -->
-      <div style="margin:8px 0;">
+    <section>
+      <div class="container">
+        <!-- フリーワード  -->
         <div class="row">
           <div class="col-xs-12">
-            <div id="gennre">
-              Sorted by 
-              <span id="current-sort">
-                <span class="glyphicon glyphicon-fire" style="margin-right:4px;"></span><b>Hot</b>
-                <span class="glyphicon glyphicon-menu-down"></span>
-              </span>
+            <span class="glyphicon glyphicon-search"></span>
+              <input type="text" id="input-searchword" name="" value="" placeholder="キーワードを入力して検索"/>
+          </div>
+        </div>
+
+        <!-- リスト変更 -->
+        <div style="margin:8px 0;">
+          <div class="row">
+            <div class="col-xs-12">
+              <div id="gennre">
+                Sorted by 
+                <span id="current-sort">
+                  <span class="glyphicon glyphicon-fire" style="margin-right:4px;"></span><b>Hot</b>
+                  <span class="glyphicon glyphicon-menu-down"></span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- リスト -->
-      <div class="row">
-        <div class="col-xs-12">
-          <ul class="list-unstyled" id="ticket-list">
-            <!-- TODO: ここからはテンプレートにする -->
-            <li>
-              <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
-                ticket1
-              </div>
-            </li>
-            <li>
-              <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
-                ticket2
-              </div>
-            </li>
-            <li>
-              <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
-                ticket3
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <!-- リスト -->
+    <section>
+      <ul class="list-unstyled" id="orders">
+        <!-- TODO: ここからはテンプレートにする -->
+        <li class="order">
+          <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
+            ticket1
+          </div>
+        </li>
+        <li class="order">
+          <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
+            ticket2
+          </div>
+        </li>
+        <li class="order">
+          <div class="tikcket" style="height:120px;border:solid 1px #aaa;border-radius:4px;margin:8px 0;">
+            ticket3
+          </div>
+        </li>
+      </ul>
+    </section>
 
 
-      <!-- イベント詳細 -->
-      <div class="row">
+    <!-- イベント詳細 -->
+    <div class="row">
+      <div class="container">
         <div class="col-xs-12">
           <div id="detail"></div>
         </div>
       </div>
+    </div>
 
-      <!-- ソート -->
-      <div id="select-sort">
-        <div class="container">
-          <li><span class="glyphicon glyphicon-fire"></span> HOT</li>
-          <li><span class="glyphicon glyphicon-bullhorn"></span> New</li>
-          <li><span class="glyphicon glyphicon-time"></span> もうすぐ</li>
-          <li><span class="glyphicon glyphicon-map-marker"></span> 周辺</li>
-        </div>
-        <div class="closer">×</div>
+    <!-- ソート -->
+    <div id="select-sort">
+      <div class="container">
+        <li><span class="glyphicon glyphicon-fire"></span> HOT</li>
+        <li><span class="glyphicon glyphicon-bullhorn"></span> New</li>
+        <li><span class="glyphicon glyphicon-time"></span> もうすぐ</li>
+        <li><span class="glyphicon glyphicon-map-marker"></span> 周辺</li>
       </div>
+      <div class="closer">×</div>
+    </div>
 
 
-      <!-- 確定しましたモーダル -->
-      <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirm-label">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body" style="color:#333;text-align:center;padding:24px 0;">
-              イベント1が確定しました
-            </div>
-            <div class="modal-footer" style="border-style:none;text-align:center;">
-              <button type="button" class="btn btn-default" id="button-pay" data-dismiss="modal">料金を支払う</button>
-            </div>
+    <!-- 確定しましたモーダル -->
+    <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirm-label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body" style="color:#333;text-align:center;padding:24px 0;">
+            イベント1が確定しました
+          </div>
+          <div class="modal-footer" style="border-style:none;text-align:center;">
+            <button type="button" class="btn btn-default" id="button-pay" data-dismiss="modal">料金を支払う</button>
           </div>
         </div>
       </div>
-
-
-      <div class="footer"></div>
     </div>
+
+
+    <div class="footer"></div>
 
 
     <!-- build:js(.) scripts/vendor.js -->
