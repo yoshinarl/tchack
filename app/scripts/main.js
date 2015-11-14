@@ -112,19 +112,24 @@
 
         $("#select-sort .closer").on("click touchend", function(e) {
             e.preventDefault();
-            $("#select-sort li").each(function(i, elem) {
-                $(elem).delay(i * 100).hide("slide", 300);
-            });
-            $('body').css('position', 'static');
-            $("html, body").css("overflow", "").css("height", "");
-            $("#select-sort").fadeOut();
+            fadeOutSortScreen();
         });
 
         $('.sort-type').on('click touchend', function(e) {
             e.preventDefault();
             sortShopList($(this).data('type'));
+            fadeOutSortScreen();
         });
     });
+
+    function fadeOutSortScreen() {
+        $("#select-sort li").each(function(i, elem) {
+            $(elem).delay(i * 100).hide("slide", 300);
+        });
+        $('body').css('position', 'static');
+        $("html, body").css("overflow", "").css("height", "");
+        $("#select-sort").fadeOut();
+    }
 
     $('#button-pay').on('click touchend', function(e) {
         e.preventDefault();
