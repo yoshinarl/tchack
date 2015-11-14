@@ -139,6 +139,22 @@ h1 {
   top: -6px;
   right: 10px;
 }
+.order-buttons {
+  display: none;
+  text-align: center;
+  margin: 14px 0;
+}
+.order-joined {
+  display: none;
+  font-weight: bold;
+  color: rgb(74, 175, 70);
+}
+.order-button-cancel {
+  margin-left: 10px;
+}
+.order button {
+  font-weight: bold;
+}
 .order-map {
   display: none;
   height: 140px;

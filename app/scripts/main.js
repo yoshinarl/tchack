@@ -51,8 +51,7 @@
             closer = $(this).find(".order-closer"),
             wrapper = $(this).find(".order-wrapper"),
             container = $(this).find(".container"),
-            hiddens = $(this).find(".order-hidden"),
-            images = $(this).find(".order-images");
+            hiddens = $(this).find(".order-hidden");
 
         if (closer.is(":visible")) {
             return;
@@ -71,6 +70,19 @@
         wrapper.animate({ height: documentHeight - 20 });
         $("body, html").animate({ scrollTop: $(this).offset().top });
         hiddens.fadeIn();
+
         // TODO: type details
+
+        $(this).on("click touchend", ".order-button-join > button", function(e) {
+            e.preventDefault();
+            $(".order-button-join").hide();
+            $(".order-joined").show("bounce");
+        });
+        $(this).on("click touchend", ".order-button-cancel", function(e) {
+            e.preventDefault();
+            console.log("here");
+            $(".order-joined").hide();
+            $(".order-button-join").fadeIn();
+        });
     });
 })(jQuery);
