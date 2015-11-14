@@ -8,16 +8,79 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/bower_components/reset-css/reset.css' />
+    <link rel="stylesheet" href="styles/login.css">
   </head>
   <body>
-    <div class="container">
-      <h1>Snobby</h1>
-      <p>Fancy app description.</p>
-      <div class="row">
-        <div class="col-xs-12" style="text-align: center;">
-          <button class="btn btn-primary" onclick="location.href='/api/login/auth'"><img src="images/twitter.png" width="30px">Login with Twitter</button>
+    <section id="section-header">
+      <div class="container"></div>
+        <h1 class="logo">Snobby</h1>
+        <p>Fancy app description.</p>
+        <div class="row login">
+          <ul>
+            <li class="login-btn">
+              <button class="btn btn-primary" onclick="location.href='/api/login/auth'"><img src="images/twitter.png" width="20px">Login with Twitter</button>
+            </li>
+            <li class="login-btn">
+              <button class="btn btn-default" onclick="location.href='index.html'">Start without Logging</button>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section id="section-content">
+      <div class="container">
+        <ul class="content-list">
+          <li>
+            <h2 class="sub-title">
+              <span class="logo">About Snobby</span><br/>高級なお酒をシェアして嗜む
+            </h2>
+            <div style="height: 0; border: solid 2px #9c2224; margin: 15px 60px"></div>
+            <p class="description">ドンペリ、五大シャトー、森伊蔵、獺祭<br/>
+            一人ではなかなか手が出せない高級な品々を
+            みんなでシェアしてお手軽に楽しませんか?
+            </p>
+            <ul class="image-list row">
+              <li class="col-xs-4"><img src="images/image_wine.jpg" alt=""></li>
+              <li class="col-xs-4"><img src="images/image_wine2.jpg" alt=""></li>
+              <li class="col-xs-4"><img src="images/image_sake.jpg" alt=""></li>
+            </ul>
+          </li>
+          <li>
+            <h2 class="sub-title">
+              <span class="logo">About Snobby</span><br/>高級なお酒をシェアして嗜む
+            </h2>
+            <div style="height: 0; border: solid 2px #9c2224; margin: 10px 60px"></div>
+            <p>ドンペリ、五大シャトー、森伊蔵、獺祭<br/>
+            一人ではなかなか手が出せない高級な品々を<br/>
+            みんなでシェアしてお手軽に楽しませんか?
+            </p>
+          </li>
+          <li>
+            <h2 class="sub-title">
+              <span class="logo">About Snobby</span><br/>高級なお酒をシェアして嗜む
+            </h2>
+            <div style="height: 0; border: solid 2px #9c2224; margin: 10px 60px"></div>
+            <p>ドンペリ、五大シャトー、森伊蔵、獺祭<br/>
+            一人ではなかなか手が出せない高級な品々を
+            みんなでシェアしてお手軽に楽しませんか?
+            </p>
+          </li>
+        </ul>
+        <div class="login-area">
+          <div class="row login">
+            <ul>
+              <li class="login-btn">
+                <button class="btn btn-primary" onclick="location.href='/api/login/auth'"><img src="images/twitter.png" width="20px">Login with Twitter</button>
+              </li>
+              <li class="login-btn">
+                <button class="btn btn-default" onclick="location.href='index.html'">Start without Logging</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
