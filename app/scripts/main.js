@@ -2,20 +2,36 @@
 (function($) {
     // $('#detail').load('./detail.html');
     var file = './detail.html',
+        shopFile = './datas/shops.csv',
         isDragged = false;
 
     $.when($.get(file)).done(function(tmplData) {
         $.templates({ detail: tmplData });
         // $(item.selector).html($.render.tmpl(item.data));
-     });
+    });
+
+    $.ajax({
+        url: shopFile,
+        success: function(data) {
+            var json = $.csv.toObjects(data);
+            $("#orders").append($("#tmpl-order").render(json));
+            viewShoplist();
+        }
+    });
+
+    function viewShoplist() {
+        $(".order").each(function(i, elem) {
+            $(elem).delay(i * 200).show("slide");
+        });
+    }
 
     // TODO: load from static dummy json file
     var orders = [1, 2, 3, 4, 5];
 
-    $("#orders").append($("#tmpl-order").render(orders));
-    $(".order").each(function(i, elem) {
-        $(elem).delay(i * 200).show("slide");
-    });
+    function sortShopList(sort) {
+        // TODO: sort
+        viewShoplist();
+    }
 
     $("#current-sort").on("click touchend", function(e) {
         e.preventDefault();

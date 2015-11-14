@@ -111,25 +111,26 @@
     <div class="footer"></div>
 
     <script id="tmpl-order" type="text/x-jsrender">
+      {{if event_title && quota > 0}}
       <li class="order" style="display: none;">
         <div class="order-wrapper">
           <div class="order-back"></div>
           <div class="container">
             <div class="order-closer">×</div>
-            <p class="order-title">獺祭の祭</p>
+            <p class="order-title">{{:event_title}}</p>
             <div class="row">
               <div class="col-xs-12">
-                <p class="order-summary">後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした...</p>
+                <p class="order-summary">{{:event_summary}}</p>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-7">
-                <p class="order-meta"><span class="glyphicon glyphicon-time"></span> 2015年11月15日</p>
-                <p class="order-meta"><span class="glyphicon glyphicon-home"></span> 宿場</p>
-                <p class="order-meta"><span class="glyphicon glyphicon-map-marker"></span> 東京都港区六本木1-1-1</p>
+                <p class="order-meta"><span class="glyphicon glyphicon-time"></span>{{:date}}</p>
+                <p class="order-meta"><span class="glyphicon glyphicon-home"></span>{{:shop_name}}</p>
+                <p class="order-meta"><span class="glyphicon glyphicon-map-marker"></span>{{:address}}</p>
               </div>
               <div class="col-xs-5">
-                <p class="order-meta order-price">¥1,000</p>
+                <p class="order-meta order-price">¥{{:price}}</p>
                 <p class="order-meta order-members"><small>あと</small>11<small>人</small></p>
               </div>
             </div>
@@ -177,6 +178,7 @@
           </div>
         </div>
       </li>
+      {{/if}}
     </script>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -185,6 +187,7 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="/bower_components/jsrender/jsrender.js"></script>
+    <script src="/bower_components/jquery-csv/src/jquery.csv.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
