@@ -32,7 +32,9 @@
 
     <div class="container">
       <div class="header">
-        <h1>Snobby</h1>
+        <h1>Snobby
+          <button class="btn btn-default pull-right" id="push-button" data-toggle="modal" data-target="#modal-confirm">通知</button>
+        </h1>
       </div>
 
       <!-- フリーワード  -->
@@ -87,6 +89,21 @@
       <div class="row">
         <div class="col-xs-12">
           <div id="detail"></div>
+        </div>
+      </div>
+
+
+      <!-- 確定しましたモーダル -->
+      <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirm-label">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body" style="color:#333;text-align:center;padding:24px 0;">
+              イベント1が確定しました
+            </div>
+            <div class="modal-footer" style="border-style:none;text-align:center;">
+              <button type="button" class="btn btn-default" id="button-pay" data-dismiss="modal">料金を支払う</button>
+            </div>
+          </div>
         </div>
       </div>
 
