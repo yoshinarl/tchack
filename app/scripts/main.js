@@ -2,6 +2,13 @@
 (function($) {
     $('#detail').load('./detail.html');
 
+    // TODO: load from static dummy json file
+    var orders = [1, 2, 3, 4, 5];
+    $("#orders").append($("#tmpl-order").render(orders));
+    $(".order").each(function(i, elem) {
+        $(elem).delay(i * 200).show("slide");
+    });
+
     $("#current-sort").on("click touchend", function(e) {
         e.preventDefault();
         $("#select-sort li, #select-sort .closer").hide();
