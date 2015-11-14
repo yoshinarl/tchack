@@ -20,7 +20,7 @@
         url: shopFile,
         success: function(data) {
             shopDatas = $.csv.toObjects(data);
-            viewShopList(shopDatas);
+            sortShopList('hot');
         }
     });
 
