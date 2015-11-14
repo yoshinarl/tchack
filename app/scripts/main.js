@@ -190,3 +190,12 @@
     });
 
 })(jQuery);
+
+$.views.converters({
+    'date':  function(value) {
+        return moment(value, 'M/D/YYYY').format('YYYY年MM月DD日');
+    },
+    'number': function(value) {
+        return Number(value).toLocaleString();
+    }
+});
