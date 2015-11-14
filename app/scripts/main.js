@@ -57,14 +57,29 @@
             order = [];
 
         $.each(transformed, function(k, v) {
-            if (typeof v[sortKey] !== 'undefined') {
-                order.push(k);
+            if (typeof v[sortKey] === 'undefined') {
+                return true;
+
             }
-            order.sort();
+
+            if (sortKey === 'event_date' || sortKey === 'register_date') {
+                var date = moment(v[sortKey], "M/D/YYYY");
+                order.push(date.valueOf());
+                order.sort(function(a, b){
+                    return (a > b ? 1 : -1);
+                });
+            } else {
+                order.push(k);
+                order.reverse();
+            }
         });
 
         $.each(order, function(i, item) {
-            sorted.push(transformed[item]);
+            if (sortKey === 'event_date' || sortKey === 'register_date') {
+                sorted.push(transformed[moment(item).format('M/D/YYYY')]);
+            } else {
+                sorted.push(transformed[item]);
+            }
         });
 
         viewShopList(sorted);
