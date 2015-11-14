@@ -72,8 +72,9 @@
             wrapper.animate({ height: container.innerHeight() + 20 });
         });
 
+        var imageHeight = container.innerWidth() / 6 * 4;
         // open
-        wrapper.animate({ height: container.innerHeight() + 460 });
+        wrapper.animate({ height: container.innerHeight() +  210 + imageHeight });
         $("body, html").animate({ scrollTop: $(this).offset().top });
         hiddens.fadeIn();
 
