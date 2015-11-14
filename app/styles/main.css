@@ -1,10 +1,15 @@
 body {
+  width: 100%;
   color: #fff;
   background-color: #AD3335;
 }
 
 h1 {
   font-size: 30px;
+}
+
+#section-console {
+  margin: 10px 0;
 }
 
 #input-searchword::-webkit-input-placeholder {
@@ -60,4 +65,9 @@ h1 {
 }
 .order {
   background-color: #891518;
+  border: none;
+  padding: 14px 0px;
+}
+.order:nth-child(n+2) {
+  margin-top: 16px;
 }
