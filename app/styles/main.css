@@ -70,23 +70,24 @@ h1 {
 }
 .order {
   border: none;
-  padding: 10px 0px;
+  padding: 10px 0px 0;
   position: relative;
 }
 .order-wrapper {
   background-image: url('http://static1.squarespace.com/static/51ab58f4e4b0361e5f3ed294/51ab58f4e4b0361e5f3ed29a/51ab80bee4b0058e26cfcb1f/1370194240299/Benchmark_Restaurant_Dining_Room_Photographed_by_Evan_Sung.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  padding-top: 10px;
+  padding: 10px 0;
+  position: relative;
 }
 .order-back {
   /*background-color: #891518;*/
   background-color: #000;
   opacity: 0.6;
   position: absolute;
-  top: 10px;
+  top: 0px;
   width: 100%;
-  height: 130px;
+  height: 100%;
   z-index: 1;
 }
 .order .container {
