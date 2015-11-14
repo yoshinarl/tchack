@@ -7,7 +7,8 @@
     "reset-css": "~2.0.2011012602",
     "jquery-ui": "~1.11.4",
     "jsrender": "~1.0.0-rc.70",
-    "jquery-csv": "*"
+    "jquery-csv": "*",
+    "momentjs": "~2.10.6"
   },
   "overrides": {
     "bootstrap": {

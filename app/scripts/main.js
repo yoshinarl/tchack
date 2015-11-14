@@ -56,14 +56,29 @@
             order = [];
 
         $.each(transformed, function(k, v) {
-            if (typeof v[sortKey] !== 'undefined') {
-                order.push(k);
+            if (typeof v[sortKey] === 'undefined') {
+                return true;
+
             }
-            order.sort();
+
+            if (sortKey === 'event_date' || sortKey === 'register_date') {
+                var date = moment(v[sortKey], "M/D/YYYY");
+                order.push(date.valueOf());
+                order.sort(function(a, b){
+                    return (a > b ? 1 : -1);
+                });
+            } else {
+                order.push(k);
+                order.reverse();
+            }
         });
 
         $.each(order, function(i, item) {
-            sorted.push(transformed[item]);
+            if (sortKey === 'event_date' || sortKey === 'register_date') {
+                sorted.push(transformed[moment(item).format('M/D/YYYY')]);
+            } else {
+                sorted.push(transformed[item]);
+            }
         });
 
         viewShopList(sorted);
@@ -93,19 +108,24 @@
 
         $("#select-sort .closer").on("click touchend", function(e) {
             e.preventDefault();
-            $("#select-sort li").each(function(i, elem) {
-                $(elem).delay(i * 100).hide("slide", 300);
-            });
-            $('body').css('position', 'static');
-            $("html, body").css("overflow", "").css("height", "");
-            $("#select-sort").fadeOut();
+            fadeOutSortScreen();
         });
 
         $('.sort-type').on('click touchend', function(e) {
             e.preventDefault();
             sortShopList($(this).data('type'));
+            fadeOutSortScreen();
         });
     });
+
+    function fadeOutSortScreen() {
+        $("#select-sort li").each(function(i, elem) {
+            $(elem).delay(i * 100).hide("slide", 300);
+        });
+        $('body').css('position', 'static');
+        $("html, body").css("overflow", "").css("height", "");
+        $("#select-sort").fadeOut();
+    }
 
     $('#button-pay').on('click touchend', function(e) {
         e.preventDefault();
@@ -187,3 +207,12 @@
     });
 
 })(jQuery);
+
+$.views.converters({
+    'date':  function(value) {
+        return moment(value, 'M/D/YYYY').format('YYYY年MM月DD日');
+    },
+    'number': function(value) {
+        return Number(value).toLocaleString();
+    }
+});
