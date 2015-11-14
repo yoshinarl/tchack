@@ -5,7 +5,8 @@
     "bootstrap": "~3.3.5",
     "modernizr": "~2.8.3",
     "reset-css": "~2.0.2011012602",
-    "jquery-ui": "~1.11.4"
+    "jquery-ui": "~1.11.4",
+    "jsrender": "~1.0.0-rc.70"
   },
   "overrides": {
     "bootstrap": {
