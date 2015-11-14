@@ -14,7 +14,6 @@
 
     $.when($.get(file)).done(function(tmplData) {
         $.templates({ detail: tmplData });
-        // $(item.selector).html($.render.tmpl(item.data));
     });
 
     $.ajax({
@@ -70,7 +69,6 @@
         viewShopList(sorted);
     }
 
-
     function transformWithType(key) {
         var transformed = {};
         $.each(shopDatas, function(i, shop) {
@@ -79,9 +77,7 @@
             }
         });
         return transformed;
-
     }
-
 
     $("#current-sort").on("click touchend", function(e) {
         e.preventDefault();
@@ -166,12 +162,28 @@
         isDragged = true;
     });
 
+    function getEventById(id) {
+        var detected = null;
+        $(shopDatas).each(function(i, shop) {
+            if (shop.id === id) {
+                detected = shop;
+                return false;
+            }
+        });
+        return detected;
+    }
+
     var socket = new Socket("ws://make-it-back.com:4000/api/socket/websocket?vsn=1.0.0")
     socket.connect();
     var channel = socket.channel("rooms:lobby", {});
     channel.join();
     channel.on("achive", function(dt) {
-        $("#modal-confirm").modal();
+        $("#confirm-message .confirm-hidden").hide();
+        $("#confirm-message").fadeIn(function() {
+            $("#confirm-message .confirm-label").show("puff", {easing: "easeOutBounce"}, 500);
+            $("#confirm-message .confirm-order").html($("#tmpl-confirm-order").render(getEventById(dt.id)));
+            $("#confirm-message .confirm-form, #confirm-message .confirm-order").fadeIn();
+        });
     });
 
 })(jQuery);

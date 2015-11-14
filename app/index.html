@@ -88,21 +88,18 @@
 
 
     <!-- 確定しましたモーダル -->
-    <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-confirm-label">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body" style="color:#333;text-align:center;margin-top:24px;">
-            イベント1が確定しました
-          </div>
-          <div class="modal-footer" style="border-style:none;text-align:center;margin:24px 0;">
-            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_s-xclick">
-              <input type="hidden" name="hosted_button_id" value="62BLKNWEDC4LA">
-              <input type="image" src="https://www.sandbox.paypal.com/ja_JP/JP/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - オンラインでより安全・簡単にお支払い">
-              <img alt="" border="0" src="https://www.sandbox.paypal.com/ja_JP/i/scr/pixel.gif" width="1" height="1">
-            </form>
-          </div>
-        </div>
+    <div id="confirm-message">
+      <div class="container">
+        <p class="confirm-label confirm-hidden">イベントが確定しました</p>
+
+        <div class="confirm-order confirm-hidden"></div>
+
+        <form class="confirm-form confirm-hidden" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="62BLKNWEDC4LA">
+          <input type="image" src="https://www.sandbox.paypal.com/ja_JP/JP/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - オンラインでより安全・簡単にお支払い">
+          <img alt="" border="0" src="https://www.sandbox.paypal.com/ja_JP/i/scr/pixel.gif" width="1" height="1">
+        </form>
       </div>
     </div>
 
@@ -177,6 +174,15 @@
         </div>
       </li>
       {{/if}}
+    </script>
+
+    <script id="tmpl-confirm-order" type="text/x-jsrender">
+      <p class="confirm-title">{{:event_title}}</p>
+      <p class="confirm-summary">{{:event_summary}}</p>
+      <p class="confirm-meta"><span class="glyphicon glyphicon-time"></span> <span class="confirm-date">{{date:event_date}}</p>
+      <p class="confirm-meta"><span class="glyphicon glyphicon-home"></span> <span class="confirm-store">{{:shop_name}}</p>
+      <p class="confirm-meta"><span class="glyphicon glyphicon-map-marker"></span> <span class="confirm-address">{{:address}}</p>
+      <p class="confirm-meta"><span class="glyphicon glyphicon-piggy-bank"></span> <span class="confirm-address">{{number:price}}円</p>
     </script>
 
     <!-- build:js(.) scripts/vendor.js -->

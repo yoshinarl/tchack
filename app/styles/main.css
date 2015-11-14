@@ -38,7 +38,7 @@ h1 {
   border-bottom: 1px solid #fff;
 }
 
-#select-sort {
+#select-sort, #confirm-message {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -65,6 +65,36 @@ h1 {
   top: 40px;
   right: 40px;
   font-size: 40px;
+}
+
+#confirm-message .container {
+  padding-top: 100px;
+  width: 85%;
+}
+#confirm-message .confirm-label {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+#confirm-message .confirm-form {
+  text-align: center;
+  margin-top: 20px;
+}
+#confirm-message .confirm-order {
+  border: 1px solid #fff;
+  margin: 30px 0;
+  padding: 10px 8px;
+}
+#confirm-message .confirm-title {
+  font-size: 22px;
+}
+#confirm-message .confirm-summary {
+  font-size: 14px;
+  margin: 8px 0 12px;
+}
+#confirm-message .confirm-meta {
+  font-size: 12px;
+  margin: 2px 0;
 }
 
 #orders {
