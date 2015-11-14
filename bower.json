@@ -4,7 +4,8 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "modernizr": "~2.8.3",
-    "reset-css": "~2.0.2011012602"
+    "reset-css": "~2.0.2011012602",
+    "jquery-ui": "~1.11.4"
   },
   "overrides": {
     "bootstrap": {
