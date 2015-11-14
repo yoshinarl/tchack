@@ -102,6 +102,7 @@ h1 {
 }
 .order-summary {
   font-size: 12px;
+  line-height: 16px;
   margin-bottom: 4px;
 }
 .order-map {
