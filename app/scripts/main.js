@@ -3,7 +3,14 @@
     // $('#detail').load('./detail.html');
     var file = './detail.html',
         shopFile = './datas/shops.csv',
-        isDragged = false;
+        shopDatas = null,
+        isDragged = false,
+        sortType = {
+            hot: 1,
+            new: 2,
+            neary: 3,
+            around: 4
+        };
 
     $.when($.get(file)).done(function(tmplData) {
         $.templates({ detail: tmplData });
@@ -13,25 +20,68 @@
     $.ajax({
         url: shopFile,
         success: function(data) {
-            var json = $.csv.toObjects(data);
-            $("#orders").append($("#tmpl-order").render(json));
-            viewShoplist();
+            shopDatas = $.csv.toObjects(data);
+            viewShopList(shopDatas);
         }
     });
 
-    function viewShoplist() {
+    function viewShopList(data) {
+        $("#orders").empty();
+        $("#orders").append($("#tmpl-order").render(data));
         $(".order").each(function(i, elem) {
             $(elem).delay(i * 200).show("slide");
         });
     }
 
-    // TODO: load from static dummy json file
-    var orders = [1, 2, 3, 4, 5];
-
     function sortShopList(sort) {
-        // TODO: sort
-        viewShoplist();
+        var type = sortType[sort],
+            sortKey = null,
+            transformed = {};
+
+        if (type === 1) {
+            sortKey = 'score';
+        } else if (type === 2) {
+            sortKey = 'register_date';
+        } else if (type === 3) {
+            sortKey = 'event_date';
+        } else if (type === 4) {
+            // TODO: implement distance sort;
+            return;
+        } else {
+            return;
+        }
+
+        transformed = transformWithType(sortKey);
+
+        var sorted = [],
+            order = [];
+
+        $.each(transformed, function(k, v) {
+            if (typeof v[sortKey] !== 'undefined') {
+                order.push(k);
+            }
+            order.sort();
+        });
+
+        $.each(order, function(i, item) {
+            sorted.push(transformed[item]);
+        });
+
+        viewShopList(sorted);
     }
+
+
+    function transformWithType(key) {
+        var transformed = {};
+        $.each(shopDatas, function(i, shop) {
+            if (typeof shop[key] !== 'undefined') {
+                transformed[shop[key]] = shop;
+            }
+        });
+        return transformed;
+
+    }
+
 
     $("#current-sort").on("click touchend", function(e) {
         e.preventDefault();
@@ -53,6 +103,11 @@
             $('body').css('position', 'static');
             $("html, body").css("overflow", "").css("height", "");
             $("#select-sort").fadeOut();
+        });
+
+        $('.sort-type').on('click touchend', function(e) {
+            e.preventDefault();
+            sortShopList($(this).data('type'));
         });
     });
 
