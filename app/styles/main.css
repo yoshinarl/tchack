@@ -60,7 +60,8 @@ h1 {
   /*margin: 14px 0;*/
   padding: 10px 0;
 }
-#select-sort .closer {
+#select-sort .closer,
+#confirm-message .closer {
   position: absolute;
   top: 40px;
   right: 40px;
@@ -90,6 +91,7 @@ h1 {
 }
 #confirm-message .confirm-summary {
   font-size: 14px;
+  line-height: 18px;
   margin: 8px 0 12px;
 }
 #confirm-message .confirm-meta {

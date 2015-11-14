@@ -199,10 +199,19 @@
     channel.join();
     channel.on("achive", function(dt) {
         $("#confirm-message .confirm-hidden").hide();
+        $("html, body").css("overflow", "hidden").css("height", "100%");
         $("#confirm-message").fadeIn(function() {
-            $("#confirm-message .confirm-label").show("puff", {easing: "easeOutBounce"}, 500);
-            $("#confirm-message .confirm-order").html($("#tmpl-confirm-order").render(getEventById(dt.id)));
-            $("#confirm-message .confirm-form, #confirm-message .confirm-order").fadeIn();
+            $("#confirm-message .confirm-label").show("puff", {easing: "easeOutBounce"}, 500, function() {
+                $("#confirm-message .confirm-order").html($("#tmpl-confirm-order").render(getEventById(dt.id)));
+                $("#confirm-message .confirm-form, #confirm-message .confirm-order").fadeIn();
+            });
+            $("#confirm-message .closer")
+                .fadeIn()
+                .on("click touchend", function(e) {
+                    e.preventDefault();
+                    $("#confirm-message").fadeOut();
+                    $("html, body").css("overflow", "").css("height", "");
+                });
         });
     });
 
