@@ -10,7 +10,6 @@
     // TODO: load from static dummy json file
     var orders = [1, 2, 3, 4, 5];
 
-
     $("#orders").append($("#tmpl-order").render(orders));
     $(".order").each(function(i, elem) {
         $(elem).delay(i * 200).show("slide");
@@ -44,6 +43,7 @@
         location.href = 'payed.html';
     });
 
+    var isDragged = false;
     $("#orders").on("click touchend", ".order", function(e) {
         e.preventDefault();
 
@@ -54,6 +54,10 @@
             hiddens = $(this).find(".order-hidden");
 
         if (closer.is(":visible")) {
+            return;
+        }
+        if (isDragged) {
+            isDragged = false;
             return;
         }
 
@@ -84,5 +88,8 @@
             $(".order-joined").hide();
             $(".order-button-join").fadeIn();
         });
+
+    }).on('mousemove touchmove', function() {
+        isDragged = true;
     });
 })(jQuery);
