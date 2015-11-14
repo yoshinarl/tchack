@@ -50,7 +50,9 @@
         var documentHeight = $(window).height(),
             closer = $(this).find(".order-closer"),
             wrapper = $(this).find(".order-wrapper"),
-            container = $(this).find(".container");
+            container = $(this).find(".container"),
+            hiddens = $(this).find(".order-hidden"),
+            images = $(this).find(".order-images");
 
         if (closer.is(":visible")) {
             return;
@@ -58,11 +60,17 @@
 
         closer.fadeIn();
         closer.on("click touchend", function(e) {
+            // close
             e.preventDefault();
+            hiddens.hide();
             closer.fadeOut();
             wrapper.animate({ height: container.innerHeight() + 20 });
         });
+
+        // open
         wrapper.animate({ height: documentHeight - 20 });
         $("body, html").animate({ scrollTop: $(this).offset().top });
+        hiddens.fadeIn();
+        // TODO: type details
     });
 })(jQuery);

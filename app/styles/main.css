@@ -139,6 +139,20 @@ h1 {
   top: -6px;
   right: 10px;
 }
+.order-map {
+  display: none;
+  height: 140px;
+  margin-top: 10px;
+}
+.order-map > img {
+  width: 100%;
+  height: 100%;
+}
+.order-images {
+  display: none;
+  margin-top: 10px;
+  /*margin: 12px 8px;*/
+}
 
 #order-detail {
   display: none;
