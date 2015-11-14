@@ -26,5 +26,9 @@
 
     });
 
+    $('#button-pay').on('click touchend', function(e) {
+        e.preventDefault();
 
+        location.href = 'payed.html';
+    });
 })(jQuery);
