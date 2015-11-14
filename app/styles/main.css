@@ -8,7 +8,7 @@ h1 {
 }
 
 #input-searchword::-webkit-input-placeholder {
-    color: white;
+    color: #ffb3b3;
 }
 #input-searchword {
   width: 90%;
@@ -20,4 +20,9 @@ h1 {
 }
 #input-searchword:focus {
   outline: 0;
+}
+
+#curent-sort {
+  padding: 0 4px 0 0;
+  border-bottom: 1px solid #fff;
 }
