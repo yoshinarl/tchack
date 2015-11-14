@@ -2,10 +2,14 @@ body {
   color: #fff;
   background-color: #AD3335;
 }
+
+h1 {
+  font-size: 30px;
+}
+
 #input-searchword::-webkit-input-placeholder {
     color: white;
 }
-
 #input-searchword {
   width: 90%;
   margin-left: 4px;
