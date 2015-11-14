@@ -110,4 +110,13 @@
     }).on('mousemove touchmove', function() {
         isDragged = true;
     });
+
+    var socket = new Socket("ws://make-it-back.com:4000/api/socket/websocket?vsn=1.0.0")
+    socket.connect();
+    var channel = socket.channel("rooms:lobby", {});
+    channel.join();
+    channel.on("achive", function(dt) {
+        $("#modal-confirm").modal();
+    });
+
 })(jQuery);
