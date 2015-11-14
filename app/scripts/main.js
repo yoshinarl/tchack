@@ -34,54 +34,103 @@
 
     function sortShopList(sort) {
         var type = sortType[sort],
-            sortKey = null,
             transformed = {};
 
+        decideSortKey(type).done(function(sortKey) {
+            transformed = transformWithType(sortKey);
+
+            var sorted = [],
+                order = [];
+
+            $.each(transformed, function(k, v) {
+                if (typeof v[sortKey] === 'undefined') {
+                    return true;
+
+                }
+
+                if (sortKey === 'event_date' || sortKey === 'register_date') {
+                    var date = moment(v[sortKey], "M/D/YYYY");
+                    order.push(date.valueOf());
+                    order.sort(function(a, b) {
+                        return (a > b ? 1 : -1);
+                    });
+                } else {
+                    order.push(k);
+                    order.sort(function(a, b) {
+                        return (Number(a) > Number(b) ? 1 : -1);
+                    });
+                }
+            });
+
+            $.each(order, function(i, item) {
+                if (sortKey === 'event_date' || sortKey === 'register_date') {
+                    sorted.push(transformed[moment(item).format('M/D/YYYY')]);
+                } else {
+                    sorted.push(transformed[item]);
+                }
+            });
+
+            viewShopList(sorted);
+
+        });
+    }
+
+
+    function decideSortKey(type) {
+        var deferred = new $.Deferred();
+
         if (type === 1) {
-            sortKey = 'score';
+            deferred.resolve('score');
         } else if (type === 2) {
-            sortKey = 'register_date';
+            deferred.resolve('register_date');
         } else if (type === 3) {
-            sortKey = 'event_date';
+            deferred.resolve('event_date');
         } else if (type === 4) {
-            // TODO: implement distance sort;
-            return;
+            getCurrentPosition().done(function(position) {
+            $.each(shopDatas, function(i, shop) {
+                shop.dist = Number(geolib.getDistance(
+                    {latitude: position.lat, longitude: position.lon},
+                    {latitude: Number(shop.lat), longitude: Number(shop.lon)}
+                ));
+            });
+                deferred.resolve('dist');
+            });
         } else {
-            return;
+            return deferred.reject();
         }
 
-        transformed = transformWithType(sortKey);
+        return deferred.promise();
+    }
 
-        var sorted = [],
-            order = [];
 
-        $.each(transformed, function(k, v) {
-            if (typeof v[sortKey] === 'undefined') {
-                return true;
+    function getCurrentPosition() {
+        var deferred = new $.Deferred();
 
-            }
+        if(!navigator.geolocation) {
+            alert('ご利用の端末は位置情報の取得に対応しておりません。');
+            deferred.reject();
+        }
 
-            if (sortKey === 'event_date' || sortKey === 'register_date') {
-                var date = moment(v[sortKey], "M/D/YYYY");
-                order.push(date.valueOf());
-                order.sort(function(a, b){
-                    return (a > b ? 1 : -1);
+        var position = navigator.geolocation.getCurrentPosition(
+            function(position) {
+                deferred.resolve({
+                    lat: position.coords.latitude,
+                    lon:position.coords.longitude
                 });
-            } else {
-                order.push(k);
-                order.reverse();
+            },
+            function(error) {
+                var errorMessage = {
+                    0: "原因不明のエラーが発生しました。設定を確認の上、再度お試しください。" ,
+                    1: "位置情報の取得が許可されていません。設定を確認の上、再度お試しください。" ,
+                    2: "電波状況などで位置情報が取得できませんでした。電波の良い場所で再度お試しください。" ,
+                    3: "位置情報の取得に時間がかかっています。電波の良い場所で再度お試しください。"
+                };
+                alert(errorMessage[error.code]);
+                deferred.reject();
             }
-        });
+        );
 
-        $.each(order, function(i, item) {
-            if (sortKey === 'event_date' || sortKey === 'register_date') {
-                sorted.push(transformed[moment(item).format('M/D/YYYY')]);
-            } else {
-                sorted.push(transformed[item]);
-            }
-        });
-
-        viewShopList(sorted);
+        return deferred.promise();
     }
 
     function transformWithType(key) {
