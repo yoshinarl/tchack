@@ -17,6 +17,7 @@
 
     $("#current-sort").on("click touchend", function(e) {
         e.preventDefault();
+        $('body').css('position', 'fixed');
         $("#select-sort li, #select-sort .closer").hide();
         $("#select-sort").fadeIn(function() {
             $("html, body").css("overflow", "hidden").css("height", "100%");
@@ -31,10 +32,10 @@
             $("#select-sort li").each(function(i, elem) {
                 $(elem).delay(i * 100).hide("slide", 300);
             });
+            $('body').css('position', 'static');
             $("html, body").css("overflow", "").css("height", "");
             $("#select-sort").fadeOut();
         });
-
     });
 
     $('#button-pay').on('click touchend', function(e) {
