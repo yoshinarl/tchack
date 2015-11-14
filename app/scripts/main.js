@@ -1,2 +1,4 @@
 // jshint devel:true
-console.log('\'Allo \'Allo!');
+(function($) {
+    $('#detail').load('./detail.html');
+})(jQuery);
