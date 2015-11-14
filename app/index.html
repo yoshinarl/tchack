@@ -69,67 +69,12 @@
 
     <!-- リスト -->
     <section>
-      <ul class="list-unstyled" id="orders">
-        <!-- TODO: ここからはテンプレートにする -->
-<!--         <li class="order">
-          <div class="order-back"></div>
-          <div class="container">
-            <p class="order-title">獺祭の祭</p>
-            <div class="row">
-              <div class="col-xs-12">
-                <p class="order-summary">後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした...</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-7">
-                <p class="order-meta"><span class="glyphicon glyphicon-time"></span> 2015年11月15日</p>
-                <p class="order-meta"><span class="glyphicon glyphicon-home"></span> 宿場</p>
-                <p class="order-meta"><span class="glyphicon glyphicon-map-marker"></span> 東京都港区六本木1-1-1</p>
-              </div>
-              <div class="col-xs-5">
-                <p class="order-meta order-price">¥1,000</p>
-                <p class="order-meta order-members"><small>あと</small>11<small>人</small></p>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li class="order">
-          <div class="order-back"></div>
-          <div class="container">
-            <p class="order-title">獺祭の祭</p>
-            <div class="row">
-              <div class="col-xs-12">
-                <p class="order-summary">後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした。俺は驚いて振り返った。後ろで大きな爆発音がした...</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-7">
-                <p class="order-meta"><span class="glyphicon glyphicon-time"></span> 2015年11月15日</p>
-                <p class="order-meta"><span class="glyphicon glyphicon-home"></span> 宿場</p>
-                <p class="order-meta"><span class="glyphicon glyphicon-map-marker"></span> 東京都港区六本木1-1-1</p>
-              </div>
-              <div class="col-xs-5">
-                <p class="order-meta order-price">¥1,000</p>
-                <p class="order-meta order-members"><small>あと</small>11<small>人</small></p>
-              </div>
-            </div>
-          </div>
-        </li> -->
-
-
-
-      </ul>
+      <ul class="list-unstyled" id="orders"></ul>
     </section>
 
-
     <!-- イベント詳細 -->
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div id="detail"></div>
-        </div>
-      </div>
+    <section>
+      <div id="order-detail"></div>
     </div>
 
     <!-- ソート -->
@@ -158,7 +103,6 @@
       </div>
     </div>
 
-
     <div class="footer"></div>
 
     <script id="tmpl-order" type="text/x-jsrender">
@@ -166,6 +110,7 @@
         <div class="order-wrapper">
           <div class="order-back"></div>
           <div class="container">
+            <div class="order-closer">×</div>
             <p class="order-title">獺祭の祭</p>
             <div class="row">
               <div class="col-xs-12">
