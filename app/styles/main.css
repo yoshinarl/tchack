@@ -45,6 +45,7 @@ h1 {
   background-color: rgba(0, 0, 0, .6);
   overflow: hidden;
   display: none;
+  z-index: 10000;
 }
 #select-sort .container {
   padding: 100px 0;
