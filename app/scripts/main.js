@@ -1,7 +1,9 @@
 // jshint devel:true
 (function($) {
     // $('#detail').load('./detail.html');
-    var file = './detail.html';
+    var file = './detail.html',
+        isDragged = false;
+
     $.when($.get(file)).done(function(tmplData) {
         $.templates({ detail: tmplData });
         // $(item.selector).html($.render.tmpl(item.data));
@@ -44,7 +46,6 @@
         location.href = 'payed.html';
     });
 
-    var isDragged = false;
     $("#orders").on("click touchend", ".order", function(e) {
         e.preventDefault();
 
