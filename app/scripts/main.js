@@ -1,7 +1,9 @@
 // jshint devel:true
 (function($) {
     // $('#detail').load('./detail.html');
-    var file = './detail.html';
+    var file = './detail.html',
+        isDragged = false;
+
     $.when($.get(file)).done(function(tmplData) {
         $.templates({ detail: tmplData });
         // $(item.selector).html($.render.tmpl(item.data));
@@ -17,6 +19,7 @@
 
     $("#current-sort").on("click touchend", function(e) {
         e.preventDefault();
+        $('body').css('position', 'fixed');
         $("#select-sort li, #select-sort .closer").hide();
         $("#select-sort").fadeIn(function() {
             $("html, body").css("overflow", "hidden").css("height", "100%");
@@ -31,10 +34,10 @@
             $("#select-sort li").each(function(i, elem) {
                 $(elem).delay(i * 100).hide("slide", 300);
             });
+            $('body').css('position', 'static');
             $("html, body").css("overflow", "").css("height", "");
             $("#select-sort").fadeOut();
         });
-
     });
 
     $('#button-pay').on('click touchend', function(e) {
@@ -43,7 +46,6 @@
         location.href = 'payed.html';
     });
 
-    var isDragged = false;
     $("#orders").on("click touchend", ".order", function(e) {
         e.preventDefault();
 
