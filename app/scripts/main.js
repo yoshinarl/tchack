@@ -344,6 +344,15 @@
         incrementMember(dt.id);
     });
 
+    channel.on("insert", function(dt) {
+        // TODO: user dt
+        // var item = dt.item;
+        var item = shopDatas[Math.floor(Math.random() * shopDatas.length)];
+        var html = $("#tmpl-order").render(item);
+        $("#orders .order:first").before(html);
+        $("#orders .order:first").show("slide");
+    });
+
     $(document).on('click touchend', '.gnavi-link', function(e) {
         e.preventDefault();
         window.open().location.href = $(this).data('href');
