@@ -115,6 +115,7 @@ h1 {
   background-repeat: no-repeat;
   padding: 10px 0;
   position: relative;
+  box-shadow: 0px 0px 3px #000;
 }
 .order-back {
   /*background-color: #891518;*/
