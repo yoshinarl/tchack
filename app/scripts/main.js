@@ -192,6 +192,7 @@
         $('body').css('position', 'fixed');
         $("#select-sort li, #select-sort .closer").hide();
         $("#select-sort").fadeIn(function() {
+            // XXX: want to keep scrolltop...
             $("html, body").css("overflow", "hidden").css("height", "100%");
             $("#select-sort .closer").show("scale", 100);
             $("#select-sort li").each(function(i, elem) {
@@ -311,7 +312,8 @@
     channel.on("achive", function(dt) {
         $.cookie(dt.id, 'payed');
         $("#confirm-message .confirm-hidden").hide();
-        $("html, body").css("overflow", "hidden").css("height", "100%");
+        var scrollTop = $(window).scrollTop();
+        $("html, body").css("overflow", "hidden").css("height", "100%").scrollTop(scrollTop);
         $("#confirm-message").fadeIn(function() {
             $("#confirm-message .confirm-label").show("puff", {easing: "easeOutBounce"}, 500, function() {
                 $("#confirm-message .confirm-order").html($("#tmpl-confirm-order").render(getEventById(dt.id)));
@@ -322,7 +324,7 @@
                 .on("click touchend", function(e) {
                     e.preventDefault();
                     $("#confirm-message").fadeOut();
-                    $("html, body").css("overflow", "").css("height", "");
+                    $("html, body").css("overflow", "").css("height", "").scrollTop(scrollTop);
                 });
         });
     });
