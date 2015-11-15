@@ -20,6 +20,10 @@
         url: shopFile,
         success: function(data) {
             shopDatas = $.csv.toObjects(data);
+            $(shopDatas).each(function(i, dt) {
+                dt.remained = dt.quota - dt.current_member;
+                console.log(dt.quota, dt.current_member);
+            });
             sortShopList('hot');
         }
     });
