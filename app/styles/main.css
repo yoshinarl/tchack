@@ -113,13 +113,14 @@ h1 {
   position: relative;
 }
 .order-wrapper {
-  /*TODO: load from json;*/
-  /*background-image: url('http://static1.squarespace.com/static/51ab58f4e4b0361e5f3ed294/51ab58f4e4b0361e5f3ed29a/51ab80bee4b0058e26cfcb1f/1370194240299/Benchmark_Restaurant_Dining_Room_Photographed_by_Evan_Sung.jpg');*/
   background-size: cover;
   background-repeat: no-repeat;
   padding: 10px 0;
   position: relative;
   box-shadow: 0px 0px 3px #000;
+}
+.order-wrapper .container {
+  text-shadow: 0px 0px 1px #000;
 }
 .order-back {
   /*background-color: #891518;*/
