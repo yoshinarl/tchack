@@ -60,8 +60,12 @@ h1 {
   font-weight: bold;
   /*margin: 14px 0;*/
   padding: 10px 0;
+  text-shadow: 0px 0px 10px #000;
 }
 #select-sort .closer,
+#confirm-message {
+  text-shadow: 0px 0px 20px #000;
+}
 #confirm-message .closer {
   position: absolute;
   top: 40px;
