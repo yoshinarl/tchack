@@ -183,8 +183,9 @@ h1 {
   display: none;
   position: absolute;
   font-size: 24px;
-  top: -6px;
-  right: 10px;
+  top: -17px;
+  right: 0px;
+  padding: 10px;
 }
 .order-buttons {
   display: none;
