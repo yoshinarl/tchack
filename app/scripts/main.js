@@ -51,6 +51,21 @@
         $("#orders").empty();
         $("#orders").append($("#tmpl-order").render(data));
         $(".order").each(function(i, elem) {
+            var id = $(elem).attr('data-order-id');
+            if (typeof $.cookie(id) !== 'undefined') {
+                $(".order-button-join").hide();
+                $(".order-joined").show();
+                $(this).on("click touchend", ".order-button-cancel", function(e) {
+                    e.preventDefault();
+                    if (typeof $.cookie(id) !== 'undefined') {
+                        $.removeCookie(id);
+                    }
+                    incrementMember(id, -1);
+                    $(".order-joined").hide();
+                    $(".order-button-join").fadeIn();
+                });
+
+            }
             $(elem).delay(i * 200).show("slide");
         });
     }
@@ -255,12 +270,16 @@
 
         $(this).on("click touchend", ".order-button-join > button", function(e) {
             e.preventDefault();
+            $.cookie(id, 'joined');
             incrementMember(id, 1);
             $(".order-button-join").hide();
             $(".order-joined").show("bounce");
         });
         $(this).on("click touchend", ".order-button-cancel", function(e) {
             e.preventDefault();
+            if (typeof $.cookie(id) !== 'undefined') {
+                $.removeCookie(id);
+            }
             incrementMember(id, -1);
             $(".order-joined").hide();
             $(".order-button-join").fadeIn();

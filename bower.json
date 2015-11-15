@@ -9,7 +9,8 @@
     "jsrender": "~1.0.0-rc.70",
     "jquery-csv": "*",
     "momentjs": "~2.10.6",
-    "geolib": "~2.0.18"
+    "geolib": "~2.0.18",
+    "jquery-cookie": "~1.4.1"
   },
   "overrides": {
     "bootstrap": {
