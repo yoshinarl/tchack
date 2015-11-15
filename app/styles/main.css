@@ -28,6 +28,7 @@ h1 {
   border: none;
   border-radius: 0px;
   border-bottom: 1px solid #fff;
+  line-height: normal;
 }
 #input-searchword:focus {
   outline: 0;
