@@ -370,9 +370,6 @@
     });
 
     channel.on("insert", function(dt) {
-        // TODO: user dt
-        // var item = dt.item;
-        // var item = shopDatas[Math.floor(Math.random() * shopDatas.length)];
         var item = appendix[Number(dt.index)];
         var html = $("#tmpl-order").render(item);
         $("#orders .order:first").before(html);
