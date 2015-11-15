@@ -1,6 +1,5 @@
 // jshint devel:true
 (function($) {
-
     // $('#detail').load('./detail.html');
     var file = './detail.html',
         shopFile = './datas/shops.csv',
@@ -329,7 +328,6 @@
     var channel = socket.channel("rooms:lobby", {});
     channel.join();
     channel.on("achive", function(dt) {
-        $.cookie(dt.id, 'payed');
         $("#confirm-message .confirm-hidden").hide();
         var scrollTop = $(window).scrollTop();
         $("html, body").css("overflow", "hidden").css("height", "100%").scrollTop(scrollTop);
