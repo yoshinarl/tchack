@@ -109,7 +109,11 @@
     <script id="tmpl-order" type="text/x-jsrender">
       {{if event_title && quota > 0}}
       <li class="order" data-order-id="{{:id}}" style="display: none;">
-        <div class="order-wrapper">
+        {{if images != "" }}
+        <div class="order-wrapper" style="background-image: url('{{:images}}');">
+        {{else}}
+        <div class="order-wrapper" style="background-image: url('http://static1.squarespace.com/static/51ab58f4e4b0361e5f3ed294/51ab58f4e4b0361e5f3ed29a/51ab80bee4b0058e26cfcb1f/1370194240299/Benchmark_Restaurant_Dining_Room_Photographed_by_Evan_Sung.jpg');">
+        {{/if}}
           <div class="order-back"></div>
           <div class="container">
             <div class="order-closer">×</div>
