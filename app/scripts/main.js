@@ -266,7 +266,7 @@
 
         var imageHeight = container.innerWidth() / 6 * 4;
         // open
-        wrapper.animate({ height: container.innerHeight() + imageHeight });
+        wrapper.animate({ height: container.innerHeight() + 160 + 48 + 52 });
         $("body, html").animate({ scrollTop: $(this).offset().top });
         hiddens.fadeIn();
 
