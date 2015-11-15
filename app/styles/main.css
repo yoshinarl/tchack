@@ -183,6 +183,11 @@ h1 {
   font-weight: bold;
   color: rgb(74, 175, 70);
 }
+.order-payed {
+  display: none;
+  font-weight: bold;
+  color: rgb(74, 175, 70);
+}
 .order-button-cancel {
   margin-left: 10px;
 }

@@ -52,7 +52,8 @@
         $("#orders").append($("#tmpl-order").render(data));
         $(".order").each(function(i, elem) {
             var id = $(elem).attr('data-order-id');
-            if (typeof $.cookie(id) !== 'undefined') {
+            if (typeof $.cookie(id) === 'undefined') {
+            } else if ($.cookie(id) === 'joined') {
                 $(".order-button-join").hide();
                 $(".order-joined").show();
                 $(this).on("click touchend", ".order-button-cancel", function(e) {
@@ -64,7 +65,10 @@
                     $(".order-joined").hide();
                     $(".order-button-join").fadeIn();
                 });
-
+            } else if ($.cookie(id) === 'payed'){
+                $(".order-button-join").hide();
+                $(".order-joined").hide();
+                $(".order-payed").show();
             }
             $(elem).delay(i * 200).show("slide");
         });
@@ -277,7 +281,7 @@
         });
         $(this).on("click touchend", ".order-button-cancel", function(e) {
             e.preventDefault();
-            if (typeof $.cookie(id) !== 'undefined') {
+            if (typeof $.cookie(id) !== 'undefined' && $.cookie(id) === 'joined') {
                 $.removeCookie(id);
             }
             incrementMember(id, -1);
@@ -305,6 +309,7 @@
     var channel = socket.channel("rooms:lobby", {});
     channel.join();
     channel.on("achive", function(dt) {
+        $.cookie(dt.id, 'payed');
         $("#confirm-message .confirm-hidden").hide();
         $("html, body").css("overflow", "hidden").css("height", "100%");
         $("#confirm-message").fadeIn(function() {
