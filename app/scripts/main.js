@@ -264,6 +264,11 @@
         });
     });
 
+    $(document).on('click touchend', '.gnavi-link', function(e) {
+        e.preventDefault();
+        window.open().location.href = $(this).data('href');
+    });
+
 })(jQuery);
 
 $.views.converters({
