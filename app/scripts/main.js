@@ -10,6 +10,24 @@
             new: 2,
             neary: 3,
             around: 4
+        },
+        sortDetail = {
+            1: {
+                glyphicon: 'fire',
+                label: 'Hot'
+            },
+            2: {
+                glyphicon: 'bullhorn',
+                label: 'New'
+            },
+            3: {
+                glyphicon: 'time',
+                label: 'もうすぐ'
+            },
+            4: {
+                glyphicon: 'map-marker',
+                label: '周辺'
+            }
         };
 
     $.when($.get(file)).done(function(tmplData) {
@@ -150,12 +168,17 @@
 
     $("#current-sort").on("click touchend", function(e) {
         e.preventDefault();
+        var currentType = $(this).attr('data-type');
+        $('#current-sort-flag').remove();
         $('body').css('position', 'fixed');
         $("#select-sort li, #select-sort .closer").hide();
         $("#select-sort").fadeIn(function() {
             $("html, body").css("overflow", "hidden").css("height", "100%");
             $("#select-sort .closer").show("scale", 100);
             $("#select-sort li").each(function(i, elem) {
+                if (currentType === $(elem).data('type')) {
+                    $(elem).prepend('<span class="glyphicon glyphicon-menu-right" id="current-sort-flag" style="margin-right:4px;"></span>');
+                }
                 $(elem).delay(i * 100).show("slide", 300);
             });
         });
@@ -167,12 +190,19 @@
 
         $('.sort-type').on('click touchend', function(e) {
             e.preventDefault();
-            sortShopList($(this).data('type'));
-            fadeOutSortScreen();
+            var type = $(this).data('type');
+            sortShopList(type);
+            fadeOutSortScreen(type);
         });
     });
 
-    function fadeOutSortScreen() {
+    function fadeOutSortScreen(type) {
+        if (typeof type !== 'undefined') {
+            $('#current-sort > span').first().attr('class', 'glyphicon glyphicon-' + sortDetail[sortType[type]].glyphicon);
+            $('#current-sort').attr('data-type', type);
+            $('#current-sort > b').text(sortDetail[sortType[type]].label);
+        }
+
         $("#select-sort li").each(function(i, elem) {
             $(elem).delay(i * 100).hide("slide", 300);
         });
