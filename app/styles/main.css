@@ -4,7 +4,7 @@ body {
   background-color: #AD3335;
   -webkit-font-smoothing: antialiased;
   font-family:  "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
-  padding: 10px 0;
+  padding: 10px 0 0;
 }
 
 h1 {
@@ -230,4 +230,12 @@ h1 {
   min-height: 100%;
   background-color: #;
   z-index: 10000;
+}
+
+.footer-bar {
+  font-size: 12px;
+  background-color: #333;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 10px;
 }
