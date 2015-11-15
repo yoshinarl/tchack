@@ -108,7 +108,7 @@
 
     <script id="tmpl-order" type="text/x-jsrender">
       {{if event_title && quota > 0}}
-      <li class="order" style="display: none;">
+      <li class="order" data-order-id="{{:id}}" style="display: none;">
         <div class="order-wrapper">
           <div class="order-back"></div>
           <div class="container">
@@ -127,7 +127,7 @@
               </div>
               <div class="col-xs-5">
                 <p class="order-meta order-price">¥{{number:price}}</p>
-                <p class="order-meta order-members"><small>あと</small>{{:remained}}<small>人</small></p>
+                <p class="order-meta order-members"><small>あと</small><span>{{:remained}}</span><small>人</small></p>
               </div>
             </div>
 

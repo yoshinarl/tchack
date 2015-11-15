@@ -21,8 +21,9 @@
         success: function(data) {
             shopDatas = $.csv.toObjects(data);
             $(shopDatas).each(function(i, dt) {
+                dt.quota = Number(dt.quota);
+                dt.current_member = Number(dt.current_member);
                 dt.remained = dt.quota - dt.current_member;
-                console.log(dt.quota, dt.current_member);
             });
             sortShopList('hot');
         }
@@ -267,6 +268,23 @@
                 });
         });
     });
+
+    function incrementMember(id, _count) {
+        var count = _count || 1;
+        var ev = getEventById(id);
+        ev.current_member += count;
+        ev.remaind = ev.quota - ev.current_member;
+        if (ev.remaind < 0) {
+            ev.remaind = 0;
+        }
+        var elem = $(".order[data-order-id='" + id + "']");
+        elem.find(".order-members span").text(ev.remaind).css("color", "rgb(74, 175, 70)").animate({ color: "#fff" });
+    }
+
+    channel.on("reduce", function(dt) {
+        incrementMember(dt.id);
+    });
+
 
 })(jQuery);
 
