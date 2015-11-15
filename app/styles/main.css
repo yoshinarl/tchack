@@ -109,6 +109,11 @@ h1 {
   margin: 2px 0;
 }
 
+#section-loader {
+  text-align: center;
+  padding: 100px 0 500px;
+}
+
 #orders {
   width: 100%;
 }

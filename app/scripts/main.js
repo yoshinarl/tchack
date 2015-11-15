@@ -1,5 +1,6 @@
 // jshint devel:true
 (function($) {
+
     // $('#detail').load('./detail.html');
     var file = './detail.html',
         shopFile = './datas/shops.csv',
@@ -38,16 +39,27 @@
         url: shopFile,
         success: function(data) {
             shopDatas = $.csv.toObjects(data);
+
             $(shopDatas).each(function(i, dt) {
                 dt.quota = Number(dt.quota);
                 dt.current_member = Number(dt.current_member);
                 dt.remained = dt.quota - dt.current_member;
+                // prefetch images
+                if (dt.images) {
+                    $("<img>").attr("src", dt.images);
+                }
             });
-            sortShopList('hot');
+
+            setTimeout(function(e) {
+                $("#section-loader").fadeOut(function() {
+                    sortShopList('hot');
+                });
+            }, 2000);
         }
     });
 
     function viewShopList(data) {
+        $("#section-footer").hide();
         $("#orders").empty();
         $("#orders").append($("#tmpl-order").render(data));
         $(".order").each(function(i, elem) {
@@ -72,6 +84,10 @@
             }
             $(elem).delay(i * 200).show("slide");
         });
+        setTimeout(function() {
+            $("#section-footer").show();
+        }, 1000);
+        // $("#section-footer").($(".order").length * 200).show();
     }
 
     function sortShopList(sort) {
