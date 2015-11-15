@@ -177,6 +177,7 @@
             $("#select-sort .closer").show("scale", 100);
             $("#select-sort li").each(function(i, elem) {
                 if (currentType === $(elem).data('type')) {
+                    $(elem).off('click touchend');
                     $(elem).prepend('<span class="glyphicon glyphicon-menu-right" id="current-sort-flag" style="margin-right:4px;"></span>');
                 }
                 $(elem).delay(i * 100).show("slide", 300);
