@@ -12,7 +12,7 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #section-header {
@@ -34,11 +34,6 @@ h2 {
 
 .login-btn {
   margin-bottom: 10px;
-}
-
-.login-area {
-  text-align: center;
-  margin: 0 auto;
 }
 
 .sub-title {
@@ -64,169 +59,18 @@ h2 {
   width: 100%;
 }
 
-#section-console {
-  margin: 10px 0;
-}
-
-#input-searchword::-webkit-input-placeholder {
-    color: #ffb3b3;
-}
-#input-searchword {
-  width: 90%;
-  margin-left: 4px;
-  background-color: transparent;
-  border: none;
-  border-radius: 0px;
-  border-bottom: 1px solid #fff;
-}
-#input-searchword:focus {
-  outline: 0;
-}
-
-#current-sort {
-  padding: 0 4px 0 0;
-  border-bottom: 1px solid #fff;
-}
-
-#select-sort {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .6);
-  overflow: hidden;
-  display: none;
-  z-index: 10000;
-}
-#select-sort .container {
-  padding: 100px 0;
-  width: 75%;
-}
-#select-sort li {
-  list-style-type: none;
-  font-size: 20px;
-  font-weight: bold;
-  /*margin: 14px 0;*/
-  padding: 10px 0;
-}
-#select-sort .closer {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  font-size: 40px;
-}
-
-#orders {
-  width: 100%;
-}
-.order {
-  border: none;
-  padding: 10px 0px 0;
-  position: relative;
-}
-.order-wrapper {
-  /*TODO: load from json;*/
-  background-image: url('http://static1.squarespace.com/static/51ab58f4e4b0361e5f3ed294/51ab58f4e4b0361e5f3ed29a/51ab80bee4b0058e26cfcb1f/1370194240299/Benchmark_Restaurant_Dining_Room_Photographed_by_Evan_Sung.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 10px 0;
-  position: relative;
-}
-.order-back {
-  /*background-color: #891518;*/
-  background-color: #000;
-  opacity: 0.6;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.order .container {
-  position: relative;
-  top: 0px;
-  z-index: 100;
-}
-.order-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-.order-summary {
-  font-size: 12px;
-  line-height: 16px;
-  margin-bottom: 4px;
-}
-.order-map {
-  padding-left: 0;
-}
-.order-meta {
-  margin: 0;
-  font-size: 10px;
-  margin-top: 4px;
-}
-.order-meta:nth-child {
-  margin-top: 0px;
-}
-.order-price {
-  text-align: right;
-  font-size: 18px;
-}
-.order-members {
-  margin-top: 0px;
-  text-align: right;
-  font-size: 26px;
-  font-weight: normal;
-}
-.order-members small {
-  font-size: 14px;
-}
-.order-closer {
-  display: none;
-  position: absolute;
-  font-size: 24px;
-  top: -6px;
-  right: 10px;
-}
-.order-buttons {
-  display: none;
+.login-area {
   text-align: center;
-  margin: 14px 0;
-}
-.order-joined {
-  display: none;
-  font-weight: bold;
-  color: rgb(74, 175, 70);
-}
-.order-button-cancel {
-  margin-left: 10px;
-}
-.order button {
-  font-weight: bold;
-}
-.order-map {
-  display: none;
-  height: 140px;
-  margin-top: 10px;
-}
-.order-map > img {
-  width: 100%;
-  height: 100%;
-}
-.order-images {
-  display: none;
-  margin-top: 10px;
-  /*margin: 12px 8px;*/
+  margin-top: 20px;
 }
 
-#order-detail {
-  display: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  min-height: 100%;
-  background-color: #;
-  z-index: 10000;
+.login-area li {
+  margin-bottom: 10px;
+}
+
+.footer-bar {
+  height: 30px;
+  background-color: #333;
+  text-align: center;
+  padding: 5px 0;
 }
