@@ -371,6 +371,7 @@
 
     channel.on("insert", function(dt) {
         var item = appendix[Number(dt.index)];
+        item.remained = item.quota - item.current_member;
         var html = $("#tmpl-order").render(item);
         $("#orders .order:first").before(html);
         $("#orders .order:first").show("slide");
