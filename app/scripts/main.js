@@ -54,21 +54,21 @@
             var id = $(elem).attr('data-order-id');
             if (typeof $.cookie(id) === 'undefined') {
             } else if ($.cookie(id) === 'joined') {
-                $(".order-button-join").hide();
-                $(".order-joined").show();
+                $(elem).find(".order-button-join").hide();
+                $(elem).find(".order-joined").show();
                 $(this).on("click touchend", ".order-button-cancel", function(e) {
                     e.preventDefault();
                     if (typeof $.cookie(id) !== 'undefined') {
                         $.removeCookie(id);
                     }
                     incrementMember(id, -1);
-                    $(".order-joined").hide();
-                    $(".order-button-join").fadeIn();
+                    $(elem).find(".order-joined").hide();
+                    $(elem).find(".order-button-join").fadeIn();
                 });
             } else if ($.cookie(id) === 'payed'){
-                $(".order-button-join").hide();
-                $(".order-joined").hide();
-                $(".order-payed").show();
+                $(elem).find(".order-button-join").hide();
+                $(elem).find(".order-joined").hide();
+                $(elem).find(".order-payed").show();
             }
             $(elem).delay(i * 200).show("slide");
         });
@@ -276,8 +276,8 @@
             e.preventDefault();
             $.cookie(id, 'joined');
             incrementMember(id, 1);
-            $(".order-button-join").hide();
-            $(".order-joined").show("bounce");
+            container.find(".order-button-join").hide();
+            container.find(".order-joined").show("bounce");
         });
         $(this).on("click touchend", ".order-button-cancel", function(e) {
             e.preventDefault();
@@ -285,8 +285,8 @@
                 $.removeCookie(id);
             }
             incrementMember(id, -1);
-            $(".order-joined").hide();
-            $(".order-button-join").fadeIn();
+            container.find(".order-joined").hide();
+            container.find(".order-button-join").fadeIn();
         });
 
     }).on('mousemove touchmove', function() {
