@@ -125,9 +125,9 @@
             </div>
             <div class="row">
               <div class="col-xs-8">
-                <p class="order-meta"><span class="glyphicon glyphicon-time"></span>{{date:event_date}}</p>
-                <p class="order-meta"><span class="glyphicon glyphicon-home"></span>{{:name}}</p>
-                <p class="order-meta"><span class="glyphicon glyphicon-map-marker"></span>{{:address}}</p>
+                <p class="order-meta"><span class="glyphicon glyphicon-time"></span> {{date:event_date}}</p>
+                <p class="order-meta"><span class="glyphicon glyphicon-home"></span> {{:name}}</p>
+                <p class="order-meta"><span class="glyphicon glyphicon-map-marker"></span> {{:address}}</p>
               </div>
               <div class="col-xs-4">
                 <p class="order-meta order-price">¥{{number:price}}</p>
@@ -149,14 +149,14 @@
             </div>
 
             <div class="order-map order-hidden">
-              <img class="img-responsive" src="http://www.lifehacker.jp/images/2011/08/110825furumap02.jpg">
+              <img class="img-responsive" src="http://staticmap.openstreetmap.de/staticmap.php?center=35.686671,139.727752&zoom=18&size=600x280&maptype=mapnik">
             </div>
 
            {{if shop_url}}
             <div class="order-link order-hidden">
               <div class="row">
                 <div class="col-xs-12">
-                  <button type="button" class="btn btn-default btn-block gnavi-link" data-href="{{:shop_url}}">
+                  <button type="button" class="btn btn-default btn-block gnavi-link" data-href="{{:shop_url}}" style="font-weight: 300;">
                     <span class="glyphicon glyphicon-share"></span>ぐるなびで確認する
                   </button>
                 </div>
