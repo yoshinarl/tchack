@@ -345,6 +345,10 @@
         });
     });
 
+    $('.confirm-form').on('submit', function() {
+        $.cookie('1', 'payed');
+    });
+
     function incrementMember(id, _count) {
         var count = _count || 1;
         var ev = getEventById(id);
