@@ -194,7 +194,8 @@
             closer = $(this).find(".order-closer"),
             wrapper = $(this).find(".order-wrapper"),
             container = $(this).find(".container"),
-            hiddens = $(this).find(".order-hidden");
+            hiddens = $(this).find(".order-hidden"),
+            id = $(this).data("order-id");
 
         if (closer.is(":visible")) {
             return;
@@ -223,11 +224,13 @@
 
         $(this).on("click touchend", ".order-button-join > button", function(e) {
             e.preventDefault();
+            incrementMember(id, 1);
             $(".order-button-join").hide();
             $(".order-joined").show("bounce");
         });
         $(this).on("click touchend", ".order-button-cancel", function(e) {
             e.preventDefault();
+            incrementMember(id, -1);
             $(".order-joined").hide();
             $(".order-button-join").fadeIn();
         });
@@ -239,7 +242,7 @@
     function getEventById(id) {
         var detected = null;
         $(shopDatas).each(function(i, shop) {
-            if (shop.id === id) {
+            if (shop.id == id) {
                 detected = shop;
                 return false;
             }
@@ -277,8 +280,9 @@
         if (ev.remaind < 0) {
             ev.remaind = 0;
         }
+        var color = (count > 0) ? "rgb(74, 175, 70)" : "#D32F2F";
         var elem = $(".order[data-order-id='" + id + "']");
-        elem.find(".order-members span").text(ev.remaind).css("color", "rgb(74, 175, 70)").animate({ color: "#fff" });
+        elem.find(".order-members span").text(ev.remaind).css("color", color).animate({ color: "#fff" });
     }
 
     channel.on("reduce", function(dt) {
