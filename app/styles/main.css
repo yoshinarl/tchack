@@ -11,6 +11,11 @@ h1 {
   font-size: 40px;
 }
 
+.btn {
+  border-radius: 2px;
+  border: none;
+}
+
 #section-title {
   font-family: 'Niconne', cursive;
 }
@@ -62,10 +67,10 @@ h1 {
   padding: 10px 0;
   text-shadow: 0px 0px 10px #000;
 }
-#select-sort .closer,
 #confirm-message {
   text-shadow: 0px 0px 20px #000;
 }
+#select-sort .closer,
 #confirm-message .closer {
   position: absolute;
   top: 40px;
@@ -149,6 +154,9 @@ h1 {
 }
 .order-map {
   padding-left: 0;
+}
+.order-map > img {
+    border-radius: 2px;
 }
 .order-meta {
   margin: 0;
