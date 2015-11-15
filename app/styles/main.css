@@ -87,6 +87,10 @@ h1 {
   font-weight: bold;
   text-align: center;
 }
+#confirm-message .confirm-note {
+  font-size: 14px;
+  text-align: center;
+}
 #confirm-message .confirm-form {
   text-align: center;
   margin-top: 20px;

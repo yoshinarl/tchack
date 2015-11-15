@@ -336,7 +336,7 @@
         $("#confirm-message").fadeIn(function() {
             $("#confirm-message .confirm-label").show("puff", {easing: "easeOutBounce"}, 500, function() {
                 $("#confirm-message .confirm-order").html($("#tmpl-confirm-order").render(getEventById(dt.id)));
-                $("#confirm-message .confirm-form, #confirm-message .confirm-order").fadeIn();
+                $("#confirm-message .confirm-form, #confirm-message .confirm-order, #confirm-message .confirm-note").fadeIn();
             });
             $("#confirm-message .closer")
                 .fadeIn()
