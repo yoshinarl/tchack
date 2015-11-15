@@ -5,6 +5,7 @@
     var file = './detail.html',
         shopFile = './datas/shops.csv',
         shopDatas = null,
+        appendix = null,
         isDragged = false,
         sortType = {
             hot: 1,
@@ -38,7 +39,9 @@
     $.ajax({
         url: shopFile,
         success: function(data) {
-            shopDatas = $.csv.toObjects(data);
+            var raw = $.csv.toObjects(data);
+            shopDatas = raw.slice(0, raw.length - 3);
+            appendix = raw.slice(raw.length - 3);
 
             $(shopDatas).each(function(i, dt) {
                 dt.quota = Number(dt.quota);
@@ -369,7 +372,8 @@
     channel.on("insert", function(dt) {
         // TODO: user dt
         // var item = dt.item;
-        var item = shopDatas[Math.floor(Math.random() * shopDatas.length)];
+        // var item = shopDatas[Math.floor(Math.random() * shopDatas.length)];
+        var item = appendix[Number(dt.index)];
         var html = $("#tmpl-order").render(item);
         $("#orders .order:first").before(html);
         $("#orders .order:first").show("slide");
