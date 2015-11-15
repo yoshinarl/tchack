@@ -17,19 +17,28 @@ h2 {
 
 #section-header {
   background-image: url('../images/image_restaurant1.jpg');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 280px;
   margin: 0 auto;
   text-align: center;
+  padding: 40px 0 20px;
 }
 
+h1.logo {
+  font-size: 56px;
+  text-shadow: 0px 0px 20px rgb(157, 32, 38);
+}
+h2 span.logo {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
 .logo {
   font-family: 'Niconne', cursive;
 }
 
 .login {
-  margin-top: 60px;
+  /*margin-top: 60px;*/
+  margin: 80px 0 20px;
 }
 
 .login-btn {
@@ -41,13 +50,16 @@ h2 {
 }
 
 .description {
-  margin-bottom: 15px;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 15px 0;
 }
 
 .content-list li {
   text-align: center;
   list-style-type: none;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
+  margin: 24px 0 20px;
 }
 
 .image-list li {
@@ -69,8 +81,8 @@ h2 {
 }
 
 .footer-bar {
-  height: 30px;
+  font-size: 12px;
   background-color: #333;
   text-align: center;
-  padding: 5px 0;
+  padding: 20px 0;
 }
