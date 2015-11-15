@@ -24,7 +24,7 @@
             },
             3: {
                 glyphicon: 'time',
-                label: 'もうすぐ'
+                label: '締切間近'
             },
             4: {
                 glyphicon: 'map-marker',
